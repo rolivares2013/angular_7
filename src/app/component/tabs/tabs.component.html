@@ -1,0 +1,1498 @@
+
+ <form [formGroup] = "formEquipment"  (ngSubmit) = "saveEquipment()"  class="m-t-30">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group has-success">
+                    <label class="control-label">WorkShop</label>
+                    <select formControlName="nameWorkshop"  id="workShop" name="workShop" class="form-control custom-select" (change)="onChangeWs($event.target.value)" >
+                        <option *ngFor="let w of workshops" [value]="w.id">{{ w.nameWorkshop}} -  {{w.dateRealization |  date:'yyyy/MM/dd'}}</option>
+                    </select>
+    
+                    <small class="form-control-feedback"> Select WorkShop </small>
+                </div>
+            </div>
+        </div>
+    
+        <ngb-tabset> 
+        
+            <ngb-tab title="WorkShop">
+              <ng-template ngbTabContent>
+                 
+                <br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <h3 class="card-title">Equipment</h3>
+                          <h6 class="card-subtitle">This is equipment Assesment</h6>
+    <!-- 
+                          <tree-app id="treeEqp" #treeFFS [dataTree] = "dataTree">loading</tree-app> -->
+                          <tree [tree]="dataTreeTMP" (nodeSelected)="onNodeSelected($event)"></tree>
+                          <!-- <tree id="treeEqp1" #treeFFS [dataTree] = "dataTree1">loading</tree> -->
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card">
+                        <div class="card-body">
+                          <h3 class="card-title">Details Equipment</h3>
+                          <h6 class="card-subtitle">Equipmentv</h6>
+    
+    
+    
+                          <ngb-tabset>
+                            <ngb-tab title="Data Sheet">
+                              <ng-template ngbTabContent>
+                                <div class="row">
+                                    
+                                  <div class="col-md-6">
+                                    <!-- Card -->
+                                    <div class="card">
+                                        <div class="card-body">
+                                          <div class="row">
+                                            <div class="col-md-5">
+                                              <h6 class="card-title">Name :     </h6>
+                                            </div>
+                                            <div class="col-md-7">
+                                              <input _ngcontent-c2=""  formControlName="nameeqp"  class="form-control" disabled=""   type="text">
+                                            </div>
+                                          </div>
+                                          <br>
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                              <h6 class="card-title">Functional Location :</h6>
+                                            </div>
+                                              <div class="col-md-7">
+                                              <input _ngcontent-c2="" class="form-control" disabled="" formControlName="namefl"  type="text">
+                                            </div>
+                                            </div>
+                                            <br>
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                              <h6 class="card-title">Tag Number :</h6>
+                                              </div>
+                                              <div class="col-md-7">
+                                              <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nametn"  type="text">
+                                            </div>
+                                            </div>
+                                            <br>
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                                <h6 class="card-title">Type :</h6>
+                                              </div>
+                                              <div class="col-md-7">
+                                                <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nametype"  type="text">
+                                              </div>
+                                            </div>
+                                            <br>
+                                          <div class="row">
+                                              <div class="col-md-5">
+                                              <h6 class="card-title">Center Cost : </h6>
+                                              </div>
+                                              <div class="col-md-7">
+                                                <input _ngcontent-c2="" class="form-control" disabled="" formControlName="namecc"  type="text">
+                                            </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+    
+                                    <!-- Card -->
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <!-- Card -->
+                                    <div class="card">
+                                        <div class="card-body">
+                                    
+                                                <ngb-carousel>
+    
+    
+    
+                                                    <ng-template *ngFor="let imgIdx of ArrayCantPhoto" ngbSlide>
+                                                        <img class="card-img-top img-responsive" src="assets/images/eqp/{{urlPhoto}}{{imgIdx}}.jpg" alt="Random second slide">
+                                                        <div class="carousel-caption">
+                                                         <!--  <h3 class="text-white font-bold">Second slide label  {{imgIdx}}</h3> -->
+                                                    
+                                                        </div>
+                                                      </ng-template>
+    
+           <!--                                        <ng-template ngbSlide>
+                                                    <img class="card-img-top img-responsive"  src="assets/images/big/img4.jpg" alt="Random first slide">
+                                                    <div class="carousel-caption">
+                                                      <h3 class="text-white font-bold">First slide label</h3>
+    
+                                                    </div>
+                                                  </ng-template>
+                                                  <ng-template ngbSlide>
+                                                    <img class="card-img-top img-responsive" src="assets/images/big/img5.jpg" alt="Random second slide">
+                                                    <div class="carousel-caption">
+                                                      <h3 class="text-white font-bold">Second slide label</h3>
+                                                
+                                                    </div>
+                                                  </ng-template>
+                                                  <ng-template ngbSlide>
+                                                    <img class="card-img-top img-responsive"  src="assets/images/big/img6.jpg" alt="Random third slide">
+                                                    <div class="carousel-caption">
+                                                      <h3 class="text-white font-bold">Third slide label</h3>
+                                                    </div>
+                                                  </ng-template> -->
+                                                </ngb-carousel>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Card -->
+                                </div>
+                              </div>  <!-- row -->
+                         <!--      <h6 class="card-title">WorkShop Current </h6> -->
+                              
+                         <!--      <div class="row"> -->
+                                
+                                  <!-- Card -->
+                               <!--    <div class="card">
+                                      <div class="card-body">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <app-sales></app-sales>
+                                          </div>
+                                        </div>
+    
+                                      </div>
+                                </div> -->
+                                  <!-- Card -->
+                       <!--      </div> -->  <!-- row -->
+                            <h6 class="card-title">Criticality Calculation</h6>
+                            <div class="row">
+                                
+                              <div class="col-md-12">
+                                <!-- Card -->
+                                <div class="card">
+                                    <div class="card-body">
+                                            <aw-wizard #wizard class="custom-css" [navBarLayout]="'large-empty-symbols'" >
+                                              <aw-wizard-step [stepTitle]="'Context'" [navigationSymbol]="{ symbol: '1' }">
+                  
+                                                <div class="centered-content">
+                                                  <div>
+                                                    <div class="form-group">
+                                                      <input type="text" class="form-control" formControlName="contextCriticality" placeholder="Context">
+                                                  </div>
+                                                  
+    
+                                                  <textarea class="form-control" id="msg" rows="3"  formControlName="messegeCriticality"  placeholder="Message"      spellcheck="false" data-gramm_editor="true" style="z-index: auto; position: relative; line-height: 21px; font-size: 14px; transition: none 0s ease 0s; background: transparent !important;"></textarea>
+    
+                                                  </div>
+    
+                                                  <div class="btn-group">
+                                                    <button type="button" class="btn btn-secondary"   awNextStep   (click)="updateCritcality()">Continue</button>
+                               
+                                                  </div>
+                                                </div>
+                                              </aw-wizard-step>
+                                              <aw-wizard-step [stepTitle]="'Likelihood'" [navigationSymbol]="{ symbol: '2' }" >
+                                                <div class="centered-content">
+                                                  <div>
+                                                    
+                                                    <div class="card">
+                                                      <div class="card-body">
+                                                          <h4 class="card-title">Likelihood</h4>
+                                                    
+                                                          <div class="table-responsive">
+                                                              <table class="table">
+                                                                  <thead class="bg-info text-white">
+                                                                      <tr>
+                                                                          <th>#</th>
+                                                                          <th>Likelihood Level</th>
+                                                                          <th>Description</th>
+                                                                          <th>Option</th>
+                                                                      </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                      <tr>
+                                                                          <td>1</td>
+                                                                          <td>Certain</td>
+                                                                          <td>Could be incurred in less than 6 months.</td>
+                                                                          <td>
+                                                                            <div class="custom-control custom-radio">
+                                                                              <input type="radio" id="customRadiocl1" name="LLHL" class="custom-control-input"  value="1" [checked]="dataLHL1"  formControlName="LLHL" >
+                                                                              <label class="custom-control-label" for="customRadiocl1"></label>
+                                                                          </div>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td>2</td>
+                                                                          <td>Almost Certain</td>
+                                                                          <td>Could be incurred in 6 – 12 months.</td>
+                                                                           
+                                                                          <td>
+                                                                            <div class="custom-control custom-radio">
+                                                                              <input type="radio" id="customRadiocl2" name="LLHL" class="custom-control-input"  value="2" [checked]="dataLHL2"  formControlName="LLHL" >
+                                                                              <label class="custom-control-label" for="customRadiocl2"></label>
+                                                                          </div>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td>3</td>
+                                                                          <td>Likely</td>
+                                                                          <td>Could be incurred over a 1 - 2 year budget period.</td>
+                                                                        
+    
+                                                                          <td>
+                                                                            <div class="custom-control custom-radio">
+                                                                              <input type="radio" id="customRadiocl3" name="LLHL" class="custom-control-input"  value="3" [checked]="dataLHL3"  formControlName="LLHL">
+                                                                              <label class="custom-control-label" for="customRadiocl3"></label>
+                                                                          </div>
+                                                                        </td>                                                      
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td>4</td>
+                                                                          <td>Possible</td>
+                                                                          <td>Could be incurred within a 5 year strategic planning period.</td>
+                                                                    
+    
+                                                                          <td>
+                                                                            <div class="custom-control custom-radio">
+                                                                              <input type="radio" id="customRadiocl4" name="LLHL" class="custom-control-input"  value="4" [checked]="dataLHL4"  formControlName="LLHL">
+                                                                              <label class="custom-control-label" for="customRadiocl4"></label>
+                                                                          </div>
+                                                                        </td>                                                      
+                                                                      </tr>
+    
+    
+                                                                      <tr>
+                                                                          <td>5</td>
+                                                                          <td>Unlikely</td>
+                                                                          <td>Could be incurred within a 5 - 20 year period..</td>
+                                                                    
+    
+                                                                          <td>
+                                                                            <div class="custom-control custom-radio">
+                                                                              <input type="radio" id="customRadiocl5" name="LLHL" class="custom-control-input"   value="5" [checked]="dataLHL5"  formControlName="LLHL">
+                                                                              <label class="custom-control-label" for="customRadiocl5"></label>
+                                                                          </div>
+                                                                        </td>                                                      
+                                                                      </tr>
+    
+    
+                                                                  </tbody>
+                                                              </table>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+    
+                                                    
+                                                  </div>
+    
+                                                  <div class="btn-group">
+                                                    <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                    <button type="button" class="btn btn-secondary" (click)= "updateLHL()" awNextStep>Continue</button>
+                                                
+                                                  </div>
+                                                </div>
+                                              </aw-wizard-step>                                          
+                                              <aw-wizard-step [stepTitle]="'Health factor and safety'" [navigationSymbol]="{ symbol: '3.1' }" awOptionalStep>
+                                                <div class="centered-content">
+                                                  <div>
+                                                    <div class="card">
+                                                      <div class="card-body">
+                                                          <h4 class="card-title">Health factor and safety</h4>
+                                                      
+                                                          <div class="table-responsive">
+                                                              <table class="table">
+                                                                  <thead class="bg-info text-white">
+                                                                      <tr>
+                                                                          <th>Severity Level</th>
+                                                                          <th>Health and Safety</th>
+                                                                          <th>Option</th>
+                                                                      </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                        <tr>
+                                                                                <td>0</td>
+                                                                                <td>Negligible impact.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadio0" name="healthfactor" class="custom-control-input" value="0" [checked]="dataHealthfactor0" formControlName="healthfactor" >
+                                                                                  <label class="custom-control-label" for="customRadio0"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+                                                                      <tr>
+                                                                          <td>1</td>
+                                                                          <td>Low-level shortterm subjective
+                                                                              symptoms or
+                                                                              inconvenience.
+                                                                              No medical
+                                                                              treatment.</td>
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio2" name="healthfactor" class="custom-control-input" value="1" [checked]="dataHealthfactor1" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio2"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td>2</td>
+                                                                          <td>Objective but
+                                                                              reversible
+                                                                              impairment.
+                                                                              Medical
+                                                                              treatment injury
+                                                                              or illness.</td>
+                                                                       
+                                                                        <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio3" name="healthfactor" class="custom-control-input" value="2" [checked]="dataHealthfactor2" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio3"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                      <tr>
+                                                                          <td>3</td>
+                                                                          <td>Permanent
+                                                                              impairment
+                                                                              <30% of body to
+                                                                              one or more
+                                                                              persons.
+                                                                              Restricted or
+                                                                              lost days due to
+                                                                              injury or illness.</td>
+                                                                         
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio4" name="healthfactor" class="custom-control-input" value="3" [checked]="dataHealthfactor3" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio4"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                      <tr>
+                                                                          <td>4</td>
+                                                                          <td>Single fatality.
+                                                                              Permanent
+                                                                              impairment
+                                                                              >30% of body to
+                                                                              one or more
+                                                                              persons.</td>
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio5" name="healthfactor" class="custom-control-input" value="4" [checked]="dataHealthfactor4" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio5"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                      <tr>
+                                                                          <td>5</td>
+                                                                          <td>2-20 fatalities.
+                                                                              Permanent
+                                                                              impairment
+                                                                              >30% of body to
+                                                                              more than 10
+                                                                              persons</td>
+                                                                         
+                                                                         
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio6" name="healthfactor" class="custom-control-input" value="5" [checked]="dataHealthfactor5" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio6"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                      <tr>
+                                                                          <td>6</td>
+                                                                          <td>>20 fatalities.
+                                                                              Permanent
+                                                                              impairment
+                                                                              >30% of body to
+                                                                              more than100
+                                                                              persons.</td>
+                                                         
+                                                                         
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio7" name="healthfactor" class="custom-control-input" value="6" [checked]="dataHealthfactor6" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio7"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                      <tr>
+                                                                          <td>7</td>
+                                                                          <td>>50 fatalities.
+                                                                              Permanent
+                                                                              impairment
+                                                                              >30% of body to
+                                                                              more than 500
+                                                                              persons.</td>
+                                                                         
+                                                                          <td>
+                                                                          <div class="custom-control custom-radio">
+                                                                            <input type="radio" id="customRadio8" name="healthfactor" class="custom-control-input" value="7" [checked]="dataHealthfactor7" formControlName="healthfactor" >
+                                                                            <label class="custom-control-label" for="customRadio8"></label>
+                                                                        </div>
+                                                                      </td>
+                                                                      </tr>
+    
+                                                                  </tbody>
+                                                              </table>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+    
+                                                  <div class="btn-group">
+                                                    <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                    <button type="button" class="btn btn-secondary" (click)= "updateHealthfactor()">Evaluate</button>
+                                                    <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusHeald"> Next </button>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </aw-wizard-step>
+         
+                                                 <aw-wizard-step [stepTitle]="'Environment'" [navigationSymbol]="{ symbol: '3.2' }" awOptionalStep>
+                                                    <div class="centered-content">
+                                                        <div>
+                                                          <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Environment</h4>
+                                                            
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead class="bg-info text-white">
+                                                                            <tr>
+                                                                                <th>Severity Level</th>
+                                                                                <th>Environment</th>
+                                                                                <th>Option</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                        <td>0</td>
+                                                                                        <td>Negligible impact.</td>
+                                                                                        <td>
+                                                                                        <div class="custom-control custom-radio">
+                                                                                          <input type="radio" id="customRadioe0" name="environment" class="custom-control-input" value="0" [checked]="dataEnvironment0" formControlName="environment" >
+                                                                                          <label class="custom-control-label" for="customRadioe0"></label>
+                                                                                      </div>
+                                                                                    </td>
+                                                                                    </tr>                                                  
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Low-level impact(s)
+                                                                                    to land, biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe2" name="environment" class="custom-control-input" value="1" [checked]="dataEnvironment1" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe2"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Minor impact(s) (<3
+                                                                                  months) to land,
+                                                                                  biodiversity,
+                                                                                  ecosystem
+                                                                                  services, water
+                                                                                  resources or air.</td>
+                                                                             
+                                                                              <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe3" name="environment" class="custom-control-input" value="2" [checked]="dataEnvironment2" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe3"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Moderate impact(s)
+                                                                                    (<1 year) to land,
+                                                                                    biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe4" name="environment" class="custom-control-input" value="3" [checked]="dataEnvironment2" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe4"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>4</td>
+                                                                                <td>Major impact(s)
+                                                                                    (<5 years) to land,
+                                                                                    biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe5" name="environment" class="custom-control-input" value="4" [checked]="dataEnvironment4" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe5"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>5</td>
+                                                                                <td>Serious or
+                                                                                    extensive impact(s)
+                                                                                    (<20 years) to land,
+                                                                                    biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe6" nname="environment" class="custom-control-input" value="5" [checked]="dataEnvironment5" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe6"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>6</td>
+                                                                                <td>Severe impact(s)
+                                                                                    (>20years) to land,
+                                                                                    biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe7" name="environment" class="custom-control-input" value="6" [checked]="dataEnvironment6" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe7"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>7</td>
+                                                                                <td>>Permanent severe
+                                                                                    impact(s) to land,
+                                                                                    biodiversity,
+                                                                                    ecosystem
+                                                                                    services, water
+                                                                                    resources or air.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioe8" name="environment" class="custom-control-input" value="7" [checked]="dataEnvironment7" formControlName="environment" >
+                                                                                  <label class="custom-control-label" for="customRadioe8"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+          
+                                                        <div class="btn-group">
+                                                          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                          <button type="button" class="btn btn-secondary" (click)= "updateEnvironment()" >Evaluate</button>
+                                                          <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusEnvir"> Next </button>
+                                                          
+
+                                                        </div>
+                                                      </div>                                             
+                                                </aw-wizard-step> 
+                                                <aw-wizard-step [stepTitle]="'Financial'" [navigationSymbol]="{ symbol: '3.3' }" awOptionalStep>
+    
+                                                    <div class="centered-content">
+                                                        <div>
+                                                          <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Financial</h4>
+                                                            
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead class="bg-info text-white">
+                                                                            <tr>
+                                                                                <th>Severity Level</th>
+                                                                                <th>Financial</th>
+                                                                                <th>Option</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                        <td>0</td>
+                                                                                        <td>
+                                                                                            Negligible impact</td>
+                                                                  
+                                                                                       
+                                                                                        <td>
+                                                                                        <div class="custom-control custom-radio">
+                                                                                          <input type="radio" id="customRadiof0" name="financial" class="custom-control-input" value="0" [checked]="dataFinancial0" formControlName="financial" >
+                                                                                          <label class="custom-control-label" for="customRadiof0"></label>
+                                                                                      </div>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td><U$250,000
+                                                                                  (BHP Billiton
+                                                                                  share)</td>
+                                                          
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof2" name="financial" class="custom-control-input" value="1" [checked]="dataFinancial1" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof2"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>≥US$250,000 to
+                                                                                    <US$2.5 million
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                                   
+                                                                             
+                                                                              <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof3" name="financial" class="custom-control-input" value="2" [checked]="dataFinancial2" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof3"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>≥ US$2.5 million
+                                                                                    to < US$25
+                                                                                    million
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                                              
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof4" name="financial" class="custom-control-input" value="3" [checked]="dataFinancial3" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof4"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>4</td>
+                                                                                <td>≥ US$25 million
+                                                                                    to <US$250
+                                                                                    million
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                                          
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof5" name="financial" class="custom-control-input" value="4" [checked]="dataFinancial4" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof5"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>5</td>
+                                                                                <td>≥ US$250
+                                                                                    million to <US$1
+                                                                                    billion
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                       
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof6" name="financial" class="custom-control-input" value="5" [checked]="dataFinancial5" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof6"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>6</td>
+                                                                                <td>≥ US$1 billion to
+                                                                                    <US$2.5 billion
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                                             
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof7" name="financial" class="custom-control-input" value="6" [checked]="dataFinancial6" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof7"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>7</td>
+                                                                                <td>≥ US$2.5 billion
+                                                                                    (BHP Billiton
+                                                                                    share)</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiof8" name="financial" class="custom-control-input" value="7" [checked]="dataFinancial7" formControlName="financial" >
+                                                                                  <label class="custom-control-label" for="customRadiof8"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+          
+                                                        <div class="btn-group">
+                                                          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                          <button type="button" class="btn btn-secondary" (click)= "updateFinancial()">Evaluate</button>
+                                                          <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusFinan"> Next </button>
+                                                        
+                                                        </div>
+                                                      </div>
+    
+                                                </aw-wizard-step> 
+                                               
+                                                <aw-wizard-step [stepTitle]="'Legal'" [navigationSymbol]="{ symbol: '3.4' }" awOptionalStep>
+                                                    <div class="centered-content">
+                                                        <div>
+                                                          <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Legal</h4>
+                                                            
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead class="bg-info text-white">
+                                                                            <tr>
+                                                                                <th>Severity Level</th>
+                                                                                <th>Legal</th>
+                                                                                <th>Option</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                        <td>0</td>
+                                                                                        <td>Negligible impact.</td>
+                                                                                        <td>
+                                                                                        <div class="custom-control custom-radio">
+                                                                                          <input type="radio" id="customRadiol0" name="legal" class="custom-control-input" value="0" [checked]="dataLegal0" formControlName="legal" >
+                                                                                          <label class="custom-control-label" for="customRadiol0"></label>
+                                                                                      </div>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Low-level legal issue resolvable
+                                                                                    without legal proceedings or
+                                                                                    substantive third party
+                                                                                    engagement.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol2" name="legal" class="custom-control-input" value="1" [checked]="dataLegal1" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol2"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Legal issue resolvable with minor
+                                                                                    consequences.</td>
+                                                                             
+                                                                              <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol3" name="legal" class="custom-control-input" value="2" [checked]="dataLegal2" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol3"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Legal issue resolvable with
+                                                                                    moderate consequences. Losing
+                                                                                    or not getting the legal right to
+                                                                                    develop or operate (or approval
+                                                                                    for) a non-core activity.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol4" name="legal" class="custom-control-input" value="3" [checked]="dataLegal3" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol4"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>4</td>
+                                                                                <td>Investigation2 for alleged major
+                                                                                    regulatory breach. Defendant to
+                                                                                    major civil proceeding.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol5" name="legal" class="custom-control-input" value="4" [checked]="dataLegal4" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol5"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>5</td>
+                                                                                <td>Impairment of legal right to develop or
+                                                                                    operate an Asset. Investigation2 for
+                                                                                    alleged high-profile regulatory breach or
+                                                                                    criminal breach. An alleged breach of
+                                                                                    compliance-related laws will be a highprofile regulatory breach. Defendant to
+                                                                                    high-profile civil proceeding. Public
+                                                                                    inquiry into BHP Billiton or an issue
+                                                                                    critical for the resources industry.</td>
+                                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol6" name="legal" class="custom-control-input" value="5" [checked]="dataLegal5" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol6"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>6</td>
+                                                                                <td>Bankruptcy affecting an Asset. Not
+                                                                                    getting or losing the legal right to
+                                                                                    develop or operate an Asset.
+                                                                                    Investigation2 for alleged severe
+                                                                                    regulatory breach, criminal breach or
+                                                                                    international law violation. Defendant to
+                                                                                    multiple, high-profile civil proceedings.</td>
+                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol7" name="legal" class="custom-control-input" value="6" [checked]="dataLegal6" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol7"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>7</td>
+                                                                                <td>Bankruptcy affecting the Business or
+                                                                                    multiple Assets. Not getting or losing the
+                                                                                    legal right to develop or operate the
+                                                                                    Business or multiple Assets.
+                                                                                    Investigation2 for alleged severe
+                                                                                    regulatory breach, criminal breach or
+                                                                                    international law violation with companywide, long-term impact. Defendant to
+                                                                                    high-profile civil proceeding(s) with
+                                                                                    company-wide, long-term impact.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadiol8" name="legal" class="custom-control-input" value="7" [checked]="dataLegal7" formControlName="legal" >
+                                                                                  <label class="custom-control-label" for="customRadiol8"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+          
+                                                        <div class="btn-group">
+                                                          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                          <button type="button" class="btn btn-secondary" (click)= "updateLegal()">Evaluate</button>
+                                                          <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusLegal"> Next </button>
+                                                        
+
+
+                                                        </div>
+                                                      </div>                                                                 
+                                                </aw-wizard-step> 
+                                                <aw-wizard-step [stepTitle]="'Community'" [navigationSymbol]="{ symbol: '3.5' }" awOptionalStep>
+                                                    <div class="centered-content">
+                                                        <div>
+                                                          <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Community</h4>
+                                                            
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead class="bg-info text-white">
+                                                                            <tr>
+                                                                                <th>Severity Level</th>
+                                                                                <th>Community</th>
+                                                                                <th>Option</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                        <td>0</td>
+                                                                                        <td>Negligible impact</td>
+                                                                                        <td>
+                                                                                        <div class="custom-control custom-radio">
+                                                                                          <input type="radio" id="customRadioco0" name="community" class="custom-control-input" value="0" [checked]="dataCommunity0" formControlName="community" >
+                                                                                          <label class="custom-control-label" for="customRadioco0"></label>
+                                                                                      </div>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Single low level community health, safety
+                                                                                    or security impact; low-level inconvenience
+                                                                                    <2 weeks; minor, reversible, low-level
+                                                                                    disturbance or minor damage to a single
+                                                                                    house or structure, object or place of
+                                                                                    regional cultural significance.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco2" name="community" class="custom-control-input" value="1" [checked]="dataCommunity1" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco2"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Minor community health, safety or security
+                                                                                    impacts (<10 households) or human rights
+                                                                                    infringements; inconvenience to livelihoods
+                                                                                    <6 months; moderate damage to <50
+                                                                                    houses or community infrastructure; minor,
+                                                                                    reversible damage to structures, objects or
+                                                                                    places of regional cultural significance</td>
+                                                                             
+                                                                              <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco3" name="community" class="custom-control-input" value="2" [checked]="dataCommunity2" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco3"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Moderate community health, safety or
+                                                                                    security impacts (<50 households). Single
+                                                                                    allegation of human rights violation;
+                                                                                    moderate disruption to people’s lives (<50
+                                                                                    households); extensive damage to <50
+                                                                                    houses; moderate reversible damage to
+                                                                                    structures, objects or places of national
+                                                                                    cultural significance.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco4" name="community" class="custom-control-input" value="3" [checked]="dataCommunity3" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco4"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>4</td>
+                                                                                <td>Serious community health, safety or
+                                                                                    security impacts (<50 households). Multiple
+                                                                                    allegations of human rights violations;
+                                                                                    extended disruption to people’s lives (>50
+                                                                                    households); extensive damage to >50
+                                                                                    houses; moderate irreversible damage to
+                                                                                    structures, objects or places of national
+                                                                                    cultural significance.</td>
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco5" name="community" class="custom-control-input" value="4" [checked]="dataCommunity4" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco5"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>5</td>
+                                                                                <td>Serious community health, safety or
+                                                                                    security impacts (<50 households). Multiple
+                                                                                    allegations of human rights violations;
+                                                                                    extended disruption to people’s lives (>50
+                                                                                    households); extensive damage to >50
+                                                                                    houses; moderate irreversible damage to
+                                                                                    structures, objects or places of national
+                                                                                    cultural significance.</td>
+                                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco6" name="community" class="custom-control-input" value="5" [checked]="dataCommunity5" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco6"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>6</td>
+                                                                                <td>Extensive community health, safety or
+                                                                                    security impacts (>200 households) or
+                                                                                    human rights violations; extended
+                                                                                    serious disruption to people’s lives
+                                                                                    (>1000 households); extensive
+                                                                                    damage to >1000 houses or
+                                                                                    community infrastructure or structures,
+                                                                                    objects or places of global cultural
+                                                                                    significance.</td>
+                                                               
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco7" name="community" class="custom-control-input" value="6" [checked]="dataCommunity6" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco7"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                            <tr>
+                                                                                <td>7</td>
+                                                                                <td>Severe, widespread community health,
+                                                                                    safety or security impacts (>1000
+                                                                                    households) or human rights violations;
+                                                                                    complete destruction of >1000 houses
+                                                                                    or community infrastructure; complete
+                                                                                    irreversible desecration of multiple
+                                                                                    structures, objects or places of global
+                                                                                    significance.</td>
+                                                                               
+                                                                                <td>
+                                                                                <div class="custom-control custom-radio">
+                                                                                  <input type="radio" id="customRadioco8" name="community" class="custom-control-input" value="7" [checked]="dataCommunity7" formControlName="community" >
+                                                                                  <label class="custom-control-label" for="customRadioco8"></label>
+                                                                              </div>
+                                                                            </td>
+                                                                            </tr>
+          
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+          
+                                                        <div class="btn-group">
+                                                          <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                          <button type="button" class="btn btn-secondary" (click)= "updateCommunity()" >Evaluate</button>
+                                                          <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusCommu"> Next </button>
+                                                        
+
+                                                        </div>
+                                                      </div>                                                         
+                                                  </aw-wizard-step> 
+                                                  <aw-wizard-step [stepTitle]="'Reputation'" [navigationSymbol]="{ symbol: '3.6' }" awOptionalStep>
+                                                      <div class="centered-content">
+                                                          <div>
+                                                            <div class="card">
+                                                              <div class="card-body">
+                                                                  <h4 class="card-title">Reputation</h4>
+                                                              
+                                                                  <div class="table-responsive">
+                                                                      <table class="table">
+                                                                          <thead class="bg-info text-white">
+                                                                              <tr>
+                                                                                  <th>Severity Level</th>
+                                                                                  <th>Reputation</th>
+                                                                                  <th>Option</th>
+                                                                              </tr>
+                                                                          </thead>
+                                                                          <tbody>
+                                                                                <tr>
+                                                                                        <td>0</td>
+                                                                                        <td>Public concern restricted to local
+                                                                                            complaints. Low-level interest from
+                                                                                            local media or regulator.</td>
+                                                                                        <td>
+                                                                                        <div class="custom-control custom-radio">
+                                                                                          <input type="radio" id="customRadior0" name="reputation" class="custom-control-input" value="0" [checked]="dataReputation0" formControlName="reputation" >
+                                                                                          <label class="custom-control-label" for="customRadior0"></label>
+                                                                                      </div>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                              <tr>
+                                                                                  <td>1</td>
+                                                                                  <td>Public concern restricted to local
+                                                                                      complaints. Low-level interest from
+                                                                                      local media or regulator.</td>
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior2" name="reputation" class="custom-control-input" value="1" [checked]="dataReputation1" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior2"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                  <td>2</td>
+                                                                                  <td>Adverse local public or media attention
+                                                                                      and complaints. Heightened scrutiny
+                                                                                      from regulator. Asset reputation is
+                                                                                      adversely affected with a small
+                                                                                      number of people.</td>
+                                                                               
+                                                                                <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior3" name="reputation" class="custom-control-input" value="2" [checked]="dataReputation2" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior3"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                              <tr>
+                                                                                  <td>3</td>
+                                                                                  <td>Attention from regional media or
+                                                                                      heightened concern by local
+                                                                                      community. Criticism by community,
+                                                                                      NGOs or activists. Asset reputation
+                                                                                      adversely affected.</td>
+                                                                                 
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior4" name="reputation" class="custom-control-input" value="3" [checked]="dataReputation3" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior4"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                              <tr>
+                                                                                  <td>4</td>
+                                                                                  <td>Adverse national media attention.
+                                                                                      General public and NGO adverse
+                                                                                      reaction with interest from regulators
+                                                                                      with no material outcome. Structured
+                                                                                      campaigning from employees, NGOs
+                                                                                      or communities having a major impact
+                                                                                      on the Business or Asset reputation.</td>
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior5" name="reputation" class="custom-control-input" value="4" [checked]="dataReputation4" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior5"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                              <tr>
+                                                                                  <td>5</td>
+                                                                                  <td>Serious national and international
+                                                                                      negative media attention. General
+                                                                                      public and NGO adverse reaction
+                                                                                      with interest from regulators (< 3
+                                                                                      months). Structured campaigning
+                                                                                      from employees, NGOs or
+                                                                                      communities having a major impact
+                                                                                      on the Business or Asset reputation.</td>
+                                                                                 
+                                                                                 
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior6" name="reputation" class="custom-control-input" value="5" [checked]="dataReputation5" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior6"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                              <tr>
+                                                                                  <td>6</td>
+                                                                                  <td>Crisis event or publication of
+                                                                                      confidential inside information
+                                                                                      resulting in international media,
+                                                                                      government, regulator or NGO
+                                                                                      campaigning and employee
+                                                                                      condemnation of the company (< 6
+                                                                                      months). Ongoing condemnation
+                                                                                      results in damage to the reputation
+                                                                                      of the company.</td>
+                                                                 
+                                                                                 
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior7" name="reputation" class="custom-control-input" value="6" [checked]="dataReputation6" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior7"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                              <tr>
+                                                                                  <td>7</td>
+                                                                                  <td>Crisis event or publication of highly
+                                                                                      confidential inside information
+                                                                                      resulting in international media,
+                                                                                      government, regulator or NGO
+                                                                                      campaigning and employee
+                                                                                      condemnation of the company (>6
+                                                                                      months). Long term damage to
+                                                                                      company reputation.</td>
+                                                                                 
+                                                                                  <td>
+                                                                                  <div class="custom-control custom-radio">
+                                                                                    <input type="radio" id="customRadior8" name="reputation" class="custom-control-input" value="7" [checked]="dataReputation7" formControlName="reputation" >
+                                                                                    <label class="custom-control-label" for="customRadior8"></label>
+                                                                                </div>
+                                                                              </td>
+                                                                              </tr>
+            
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          </div>
+            
+                                                          <div class="btn-group">
+                                                            <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                            <button type="button" class="btn btn-secondary" (click)= "updateReputation()" >Evaluate</button>
+                                                            <button type="button" class="btn btn-secondary" [awGoToStep]="flowWizard" [disabled] = "buttonNextStatusReput"> Next </button>
+                                                          
+
+                                        
+                                                          </div>
+                                                        </div>                                                   
+                                                    </aw-wizard-step> 
+                                                  
+    
+                                              <aw-wizard-step [stepTitle]="'Criticality'" [navigationSymbol]="{ symbol: '4' }">
+                                                <div class="centered-content">
+                                                  <div>
+    
+                                                    <div class="card">
+                                                      <div class="card-body">
+                                                          <h4 class="card-title">Severity Level</h4>
+                                                          <div class="table-responsive">
+                                                              
+    
+                                                              <img class="card-img-top img-responsive" src="assets/images/matriz.jpg" alt="Card image cap">
+    
+                                                          </div>
+                                                      </div>
+    
+                                                      <div class="card-body">
+                                                          <h4 class="card-title">Result</h4>
+                                                          <div class="table-responsive">
+                              
+                                                              <span class="label label-rounded label-danger">{{resultCritical}}</span>
+                                                            
+    
+                                                          </div>
+                                                      </div>
+                                                  </div>
+    
+                                                  <div class="form-group">
+                                                      <label>Commentary</label>
+                                                      <textarea formControlName="comentaryCriticality" class="form-control" rows="5"></textarea>
+                                                  </div>
+    
+                                                  </div>
+    
+                                                  <div class="btn-group">
+                                                    <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                                                    <button type="submit" class="btn btn-success m-r-10">Confirm</button>
+                                                  </div>
+                                                </div>
+                                              </aw-wizard-step>                           
+                                            </aw-wizard>
+    
+                                    </div>
+                                </div>
+    
+                                <!-- Card -->
+                            </div>
+    
+                          
+                          </div>  <!-- row -->
+    
+    
+                              </ng-template>
+                            </ngb-tab>
+                            <ngb-tab>
+                              <ng-template ngbTabTitle>
+                                <b>Business Information</b>
+                              </ng-template>
+                              <ng-template ngbTabContent>
+                                  <br>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                       <h6 class="card-title">Cost Per Unit: </h6>
+                                    </div>
+                                      <div class="col-md-7">
+                                      <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameccp" value="YRMSD" type="text">
+                                     </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                    <h6 class="card-title">Criticality: </h6>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameccr" type="text">
+                                   </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                    <h6 class="card-title">Criticality Sec: </h6>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameccrs"  type="text">
+                                  </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                    <h6 class="card-title">Down time Calculations: </h6>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input _ngcontent-c2="" class="form-control" disabled="" formControlName="namedownloadc"   type="text">
+                                  </div>
+                                  </div>                             
+    
+                                  <br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                  <h6 class="card-title">Equipment Run time: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameeqpr"  type="text">
+                                </div>
+                                </div>  
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                  <h6 class="card-title">Functional Location: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="namefunloc"  type="text">
+                                </div>
+                                </div>   
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                  <h6 class="card-title">Hours Of Operation: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="namehourop"  type="text">
+                                </div>
+                                </div> 
+                                <br> 
+                                <div class="row">
+                                  <div class="col-md-5">
+                                  <h6 class="card-title">Production Period: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameprodper"   type="text">
+                                </div>
+                                </div>  
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                  <h6 class="card-title">Production Unit: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameprouni"   type="text">
+                                </div>
+                                </div>  
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <h6 class="card-title">Production Unit Hour: </h6>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <input _ngcontent-c2="" class="form-control" disabled="" formControlName="nameprodunihour"   type="text">
+                                </div>
+                                </div>                             
+    
+                                <br>
+                              </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="WorkShop" [disabled]="false">
+                              <ng-template ngbTabContent>
+                                <p class="p-t-20">Equipment not History WorkShop</p>
+                              </ng-template>
+                            </ngb-tab>
+                            
+                          </ngb-tabset>
+    
+                       
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    
+      </ng-template>
+    </ngb-tab>
+    
+        <ngb-tab title="Participants">
+            <ng-template ngbTabContent>
+              <br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Participants Workshop</h4>
+                    
+                        <div class="table table-responsive smart-table">
+                          <ng2-smart-table [settings]="settings" [source]="participantsws" class=""></ng2-smart-table>
+                      </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="Report">
+            <ng-template ngbTabContent>
+              <br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Report Workshop</h4>
+                    
+                        <div class="table table-responsive smart-table">
+                         
+
+                            <!-- <app-info-card></app-info-card> -->
+<!-- 
+                            <app-sale></app-sales> -->
+
+                              <!--   <app-sales></app-sales> -->
+                                
+                                <app-sales-income [dataGrah]="dataGrahWS" ></app-sales-income>
+                                
+                      </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Result Equipment">
+            <ng-template ngbTabContent>
+              <br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Equipment Workshop</h4>
+                    
+                        <div class="table table-responsive smart-table">
+<!--                           <ng2-smart-table [settings]="settings" [source]="participantsws" class=""></ng2-smart-table> -->
+                      </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+    </form>

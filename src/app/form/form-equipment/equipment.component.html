@@ -1,0 +1,162 @@
+<!-- row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Equipment</h4>
+                <h6 class="card-subtitle"> Information </h6>
+                <form [formGroup] = "formEquipment"  (ngSubmit) = "saveEquipment()"  class="m-t-30">
+                        <div class="row p-t-20">
+                            <div class="col-md-2">
+                                <div class="form-group has-danger">
+                                    <label class="control-label">Functional Location </label>
+                                    <input type="text" formControlName="functionalLocation" id="lastName" class="form-control form-control-danger" >
+                                   <!--  <small class="form-control-feedback"> This field has error. </small> -->
+                                </div>
+                            </div>   
+
+                            <div class="col-md-2">
+                                    <div class="form-group has-success">
+                                        <label class="control-label">Func. Location Desc.</label>
+                                        <input  formControlName="functionalLocationDescription"  class="form-control ">
+                                      
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Tag Number</label>
+                                        <input  formControlName="idTagNumber"  class="form-control ">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                 <!--/span-->
+                                 <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Type</label>
+                                            <input formControlName="type"   class="form-control">
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                                <!--/span-->
+                                <div class="col-md-2">
+                                  <div class="form-group">
+                                      <label class="control-label">Center Cost</label>
+                                      <input  formControlName="centerCost"  class="form-control ">
+                                  </div>
+                              </div>
+                              <!--/span-->
+                               <!--/span-->
+                               <div class="col-md-2">
+                                      <div class="form-group">
+                                          <label class="control-label">Father</label>
+                                          <select formControlName="father"  id="father" name="father" class="form-control custom-select" >
+                                            <option *ngFor="let p of equipmentCrudsList" [value]="p.id">{{ p.functionalLocation}}</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <!--/span-->
+                            </div> 
+
+                            <div class="row p-t-20">
+                                <div class="col-md-2">
+                                  <div class="form-group">
+                                      <label>Status Code</label>
+                                       <select formControlName="statuscode"  id="statuscode" name="statuscode" class="form-control custom-select" >
+                                        <option *ngFor="let p of statuscodes" [value]="p.id">{{p.description}}</option>
+                                    </select> 
+                                  </div>
+                              </div>
+                              <div class="col-md-2">
+                                  <div class="form-group">
+                                      <label>Type Machine</label>
+                                       <select formControlName="typemachine"  id="typemachine" name="typemachine" class="form-control custom-select" >
+                                        <option *ngFor="let p of typemachines" [value]="p.id">{{ p.description}}</option>
+                                    </select> 
+                                  </div>
+                              </div>
+                              <div class="col-md-8" style="display:none;">
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                  
+
+                                  <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Button</button>
+                                    </div>
+                                </div>
+                                    <!--  <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/> --> 
+
+                                </div>
+                            </div>
+                          </div> 
+
+
+                          <div class="row p-t-20" style="display:none;">
+
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                  <label class="control-label"> productionUnitHour</label>
+                                  <input  formControlName="productionUnitHour"  class="form-control ">
+                              </div>
+                          </div>
+                          <div class="col-md-2">
+                              <div class="form-group">
+                                  <label class="control-label">productionPeriod</label>
+                                    <input  formControlName="productionPeriod"  class="form-control ">
+                              </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group">
+                                    <label class="control-label">productionUnit</label>
+                                    <input  formControlName="productionUnit"  class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                    <label class="control-label">hoursOfOperation</label>
+                                    <input  formControlName="hoursOfOperation"  class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                    <label class="control-label">downtimeCalculations</label>
+                                    <input  formControlName="downtimeCalculations"  class="form-control ">
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                    <label class="control-label">equipmentRuntime</label>
+                                    <input  formControlName="equipmentRuntime"  class="form-control ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-t-20" style="display:none;">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                        <label class="control-label">criticality</label>
+                                        <input  formControlName="criticality"  class="form-control ">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                        <label class="control-label">criticalitySec</label>
+                                        <input  formControlName="criticalitySec"  class="form-control ">
+                                </div>
+                            </div>
+                
+                          </div> 
+
+                     <button type="submit" class="btn btn-success m-r-10">Save</button>
+                    <button type="submit" class="btn btn-dark">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row -->

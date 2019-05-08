@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Workshop</h4>
+              <h6 class="card-subtitle">List Workshop.</h6>
+              <div class="table table-responsive smart-table">
+                  <ng2-smart-table [settings]="settings" [source]="workshops" (userRowSelect)="editWorkShop($event)"class=""></ng2-smart-table>
+              </div>
+          </div>
+      </div>
+      <button (click)="callWorkShop()"class="btn btn-success m-r-10">Add New</button>
+  </div>
+</div>

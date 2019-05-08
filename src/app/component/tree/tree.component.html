@@ -1,0 +1,23 @@
+<div class="tree-demo-app">
+
+    <div class="tree-container tree-container--with-controls">
+        <div class="tree-info">
+            <p class="tree-title">Directory/File structure</p>
+            <p class="notice">this tree has advanced configurations</p>
+        </div>
+        <div class="tree-content">
+            <tree #treeFFS
+                  [tree]="ffs"
+                  (nodeRemoved)="onNodeRemoved($event)"
+                  (nodeRenamed)="onNodeRenamed($event)"
+                  (nodeSelected)="onNodeSelected($event)"
+                  (nodeUnselected)="onNodeUnselected($event)"
+                  (nodeMoved)="onNodeMoved($event)"
+                  (nodeCreated)="onNodeFFSCreated($event)"
+                  (nodeExpanded)="onNodeExpanded($event)"
+                  (nodeCollapsed)="onNodeCollapsed($event)"
+                  [settings]="settings">
+            </tree>
+        </div>
+    </div>
+</div>

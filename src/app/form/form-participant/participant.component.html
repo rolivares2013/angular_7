@@ -1,0 +1,191 @@
+<!-- row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">WorkShop</h4>
+                <h6 class="card-subtitle"> Information </h6>
+                <form [formGroup] = "formWorkshop"  (ngSubmit) = "saveWorkshop()"  class="m-t-30">
+                        <div class="row p-t-20">
+                            <div class="col-md-3">
+                                <div class="form-group has-danger">
+                                    <label class="control-label">Name WorkShop </label>
+                                    <input type="text" formControlName="nameWorkshop" id="lastName" class="form-control form-control-danger" placeholder="Name WorkShop">
+                                   <!--  <small class="form-control-feedback"> This field has error. </small> -->
+                                </div>
+                            </div>   
+
+                            <div class="col-md-5">
+                                    <div class="form-group has-success">
+                                        <label class="control-label">Project</label>
+                                        <select formControlName="nameProject"  id="project" name="project" class="form-control custom-select" >
+                                            <option *ngFor="let p of projects" [value]="p.id">{{ p.functionalLoc}}-{{p.nameProject}}</option>
+                                        </select>
+
+                                        <small class="form-control-feedback"> Select Project </small>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Start date</label>
+                                        <input  formControlName="dateBegin" type="date" class="form-control ">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                 <!--/span-->
+                                 <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">End date</label>
+                                            <input formControlName="dateEnd" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                            </div> 
+                           
+                        <div class="form-group">
+                            <label>Commentary</label>
+                            <textarea formControlName="comentary" class="form-control" rows="5"></textarea>
+                        </div>
+                        <div class="col-md-12">                      
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Settings</h3>
+                                    <h6 class="card-subtitle">WorkShop</h6>
+                            
+                                    <ngb-tabset>
+
+                                            <ngb-tab>
+                                                    <ng-template ngbTabTitle>
+                                                      <b>Participants</b>
+                                                    </ng-template>
+                                                    <ng-template ngbTabContent>
+            
+                                                            <div class="row">
+                                                          
+                                                                    <div class="col-md-12">
+                                                                      
+                                                                            <div class="row">
+                                                                                    <div class="col-md-5">
+                                                                                        <br>
+                                                                                        <div class="card">
+                                                                                            <div class="card-body">
+                                                                                            <h3 class="card-title">Participants</h3>
+                                                                                            <h6 class="card-subtitle">This is participants available</h6>
+                                                                                                        
+                                                                                                <ng2-smart-table [settings]="settings" [source]="participants"  (userRowSelect)="onUserRowSelect($event)" class=""></ng2-smart-table>
+                                                                                    
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-1">
+                                                                                            <br>
+                                                                                            <div class="card">
+                                                                                                    <div class="card-body">
+                                                                                                            <div class="row">  
+                                                                                                                    <button type="button" (click)="cargar()" class="btn btn-success m-r-10">>></button>
+                                                                                                            </div>
+                                                                                                            <br>
+                                                                                                            <div class="row"> 
+                                                                                                                     <button type="button" (click)="sacar()" class="btn btn-success m-r-10"><<</button>
+                                                                                                             </div>
+                                                                                                            </div>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-5">
+                                                                                        <br>
+                                                                                            <div class="card">
+                                                                                              <div class="card-body">
+                                                                                                <h3 class="card-title">Participants</h3>
+                                                                                                <h6 class="card-subtitle">This is participants Assesment</h6>
+                                                                                        
+                                                                                                <ng2-smart-table [settings]="settings" [source]="data"  (userRowSelect)="onUserRowSelect1($event)" class=""></ng2-smart-table>
+                                                                                        
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                            </div>                                             
+                                                            
+                                
+            
+                                                                    </div>
+                                                                </div>       
+                                                                    
+                                                    </ng-template>
+                                                  </ngb-tab>
+
+
+
+
+                                      <ngb-tab title="Equipment">
+                                        <ng-template ngbTabContent>
+                                          <div class="row">
+                                              
+                                            <div class="col-md-12">
+                                              <!-- Card -->
+                                              <div class="row">
+                                                    <div class="col-md-5">
+                                                        <br>
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                            <h3 class="card-title">Equipment</h3>
+                                                            <h6 class="card-subtitle">This is equipment available</h6>
+                                                    
+                                                         <!--  <tree-app #treeFFS [dataTree] = "dataTree">loading</tree-app>  -->
+                                                        <!--  <app-equipment-toggle> loading ... </app-equipment-toggle> -->
+
+                                                        <ng2-smart-table [settings]="settingsEqp" [source]="equipments"  (userRowSelect)="onUserRowSelectEqpLeft($event)" class=""></ng2-smart-table>
+                                                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                            <br>
+                                                            <div class="card">
+                                                                    <div class="card-body">
+                                                                            <div class="row">  
+                                                                                    <button type="button" (click)="cargarEqp()"  class="btn btn-success m-r-10">>></button>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row"> 
+                                                                                     <button type="button" (click)="sacarEqp()" class="btn btn-success m-r-10"><<</button>
+                                                                             </div>
+                                                                            </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-5 ">
+                                                        <br>
+                                                            <div class="card">
+                                                              <div class="card-body">
+                                                                <h3 class="card-title">Equipment</h3>
+                                                                <h6 class="card-subtitle">This is equipment Assesment</h6>
+                                                        
+                                                              <!--   <tree-app>loading</tree-app>  -->
+                                                              <ng2-smart-table [settings]="settingsEqp" [source]="dataEqp"  (userRowSelect)="onUserRowSelectEqpRight($event)" class=""></ng2-smart-table>
+                                                    
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                            </div>                                             
+                            
+                                              <!-- Card -->
+                                          </div>
+
+                                            </div>  <!-- row -->
+
+                                        </ng-template>
+                                      </ngb-tab>
+
+
+                                    </ngb-tabset>
+                                  </div>
+                                </div>
+                              </div>
+                    <button type="submit" class="btn btn-success m-r-10">Save</button>
+                    <button type="submit" class="btn btn-dark">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row -->
